@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve --proxy-config ./proxy.json --live-reload false",
     "server": "ts-node -P ./server/server.tsconfig.json ./server/server.ts",
-    "build": "ng build",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider  && gulp buildDev && ng build",
     "start:prod": "ng build --prod && cd dist && http-server -c-1 -P http://localhost:9000 .",
     "test": "ng test",
     "lint": "ng lint",
