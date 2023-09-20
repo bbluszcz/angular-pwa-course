@@ -101,7 +101,8 @@
             "main": "main.server.ts",
             "tsConfig": "tsconfig.server.json",
             "sourceMap": true,
-            "optimization": false
+            "optimization": false,
+            "buildOptimizer": false
           },
           "defaultConfiguration": ""
         }
