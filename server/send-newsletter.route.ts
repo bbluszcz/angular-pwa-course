@@ -11,7 +11,7 @@ export function sendNewsletter(req, res) {
     const notificationPayload = {
         "notification": {
             "title": "Angular News",
-            "body": "Newsletter Available!",
+            "body": "bodyleasing",
             "icon": "assets/main-page-logo-small-hat.png",
             "vibrate": [100, 50, 100],
             "data": {
@@ -32,6 +32,9 @@ export function sendNewsletter(req, res) {
         .catch(err => {
             console.error("Error sending notification, reason: ", err);
             res.sendStatus(500);
+            res.render('error', {
+              error: err
+          });
         });
 
 

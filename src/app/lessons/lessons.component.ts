@@ -18,7 +18,7 @@ export class LessonsComponent implements OnInit {
 
     sub: PushSubscription;
 
-    readonly VAPID_PUBLIC_KEY = "BLnVk1MBGFBW4UxL44fuoM2xxQ4o9CuxocVzKn9UVmnXZEyPCTEFjI4sALMB8qN5ee67yZ6MeQWjd5iyS8lINAg";
+    readonly VAPID_PUBLIC_KEY = "BOcQl3kDtK0qAYO6VeY3iCOVRJZhe-fyssP03-4L64utheLIRJpvbe8y7iKxZxJtwANJ-HS6Ynn3N4eotYluaNA";
 
     constructor(
         private lessonsService: LessonsService,
@@ -45,11 +45,8 @@ export class LessonsComponent implements OnInit {
 
             this.sub = sub;
 
-
-            console.log("Notification Subscription: ", sub);
-
             this.newsletterService.addPushSubscriber(sub).subscribe(
-                () => console.log('Sent push subscription object to server.'),
+                () => console.log('Sent push subscription object to server.', sub),
                 err =>  console.log('Could not send subscription object to server, reason: ', err)
             );
 
@@ -64,7 +61,7 @@ export class LessonsComponent implements OnInit {
 
         console.log("Sending Newsletter to all Subscribers ...");
 
-        this.newsletterService.send().subscribe();
+        this.newsletterService.send().subscribe((suc) => console.log('suc', suc), err => console.log('err sending newsletter', err));
     }
 
 

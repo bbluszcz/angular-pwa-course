@@ -12,7 +12,7 @@ export class NewsletterService {
 
     }
 
-    addPushSubscriber(sub:any) {
+    addPushSubscriber(sub: PushSubscription) {
         return this.http.post('/api/notifications', sub);
     }
 
